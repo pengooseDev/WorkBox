@@ -1,0 +1,8 @@
+extends base
+include mixins/video
+
+block content
+    each i in videos 
+        +video(i)
+    else
+        li Nothing Found

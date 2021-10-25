@@ -1,0 +1,11 @@
+extends base
+
+
+
+block content
+    h4 Uplaod your Video
+    form(method="POST" action="")
+        input(name="title", type="text", placeholder="Input your video name", require)
+        input(name="description", type="text", placeholder="Description", require)
+        input(name="hashtags", type="text", placeholder="Hashtags, separated by comma.", require)
+        input(type="submit", value="Upload")
