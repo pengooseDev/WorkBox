@@ -3,6 +3,7 @@ mongoose.connect("mongodb://127.0.0.1:27017/pengtube", {
     //Mongoose MongoDB 최신화
     useNewUrlParser: true,
     useUnifiedTopology: true,
+    //useFindAndModify: false,
 });
 
 const db = mongoose.connection;

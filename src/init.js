@@ -1,5 +1,6 @@
 import "./db";
 import "./models/Video";
+import "./models/User";
 import app from "./server";
 
 /* 1. 포트 열기 */

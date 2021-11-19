@@ -5,6 +5,7 @@ import {
     postEdit,
     getUpload,
     postUpload,
+    deleteVideo,
 } from "../controllers/videoController";
 
 const videoRouter = express.Router();
@@ -15,10 +16,10 @@ const videoRouter = express.Router();
 그렇기 때문에 파라미터 접속 페이지는 else느낌으로 제일 아래에 넣어야함. */
 
 //videoRouter.get("/:id(\\d+)", watch);랑 같은표현
-videoRouter.get("/:id(\\d+)", watch);
-
+videoRouter.get("/:id([0-9a-f]{24})", watch);
+//regexpal.com에서 정규표현식 공부
 //video/123/watch가 아닌 video/123 그 번호 자체가 Path임.
-videoRouter.route("/:id(\\d+)/edit").get(getEdit).post(postEdit);
-
+videoRouter.route("/:id([0-9a-f]{24})/edit").get(getEdit).post(postEdit);
+videoRouter.route("/:id([0-9a-f]{24})/delete").get(deleteVideo);
 videoRouter.route("/upload").get(getUpload).post(postUpload);
 export default videoRouter;
