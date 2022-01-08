@@ -13,11 +13,11 @@ DB구축해버려도 상관 없음.
 import express from "express";
 import morgan from "morgan";
 import session from "express-session"; //router앞에서 초기화.
-import { localsMiddleware } from "./middlewares";
-
+import MongoStore from "connect-mongo"
 import rootRouter from "./routers/rootRouter";
 import videoRouter from "./routers/videoRouter";
 import userRouter from "./routers/userRouter";
+import { localsMiddleware, sessionMiddleware } from "./middlewares";
 
 //babel을 사용하므로 const express = require("express"); 를 위의 코드로 대체
 const app = express();
@@ -41,11 +41,13 @@ app.use(
         secret: "secret String",
         resave: true,
         saveUninitialized: true,
+        //MongoStore
+        store: MongoStore.create({mongoUrl: "mongodb://127.0.0.1:27017/pengtube"})
     })
 );
 
 /* locals Middleware - 이것 또한 Router 이전, Session 뒤에 사용 */
-app.use(localsMiddleware);
+app.use(localsMiddleware, sessionMiddleware);
 
 /* 5. Router 만들기 및 사용*/
 app.use("/", rootRouter);
