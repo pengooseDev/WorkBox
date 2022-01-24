@@ -13,7 +13,7 @@ DB구축해버려도 상관 없음.
 import express from "express";
 import morgan from "morgan";
 import session from "express-session"; //router앞에서 초기화.
-import MongoStore from "connect-mongo"
+import MongoStore from "connect-mongo";
 import rootRouter from "./routers/rootRouter";
 import videoRouter from "./routers/videoRouter";
 import userRouter from "./routers/userRouter";
@@ -39,10 +39,12 @@ app.use(express.urlencoded({ extended: true }));
 app.use(
     session({
         secret: "secret String",
-        resave: true,
-        saveUninitialized: true,
-        //MongoStore
-        store: MongoStore.create({mongoUrl: "mongodb://127.0.0.1:27017/pengtube"})
+        resave: false,
+        saveUninitialized: false,
+        //MongoStore (세션은 하나의 옵션을 가지는데 그게 아래에 있는 store임. 몽고스토어로 설정하고 dburl연결.)
+        store: MongoStore.create({
+            mongoUrl: "mongodb://127.0.0.1:27017/pengtube",
+        }),
     })
 );
 
