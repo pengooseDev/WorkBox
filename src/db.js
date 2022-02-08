@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-mongoose.connect("mongodb://127.0.0.1:27017/pengtube", {
+mongoose.connect(process.env.DB_URL, {
     //Mongoose MongoDB 최신화
     useNewUrlParser: true,
     useUnifiedTopology: true,

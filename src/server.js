@@ -38,12 +38,12 @@ app.use(express.urlencoded({ extended: true }));
 /* Session - 반드시 Router 앞에서 사용. */
 app.use(
     session({
-        secret: "secret String",
+        secret: process.env.COOKIE_SECRET,
         resave: false,
         saveUninitialized: false,
         //MongoStore (세션은 하나의 옵션을 가지는데 그게 아래에 있는 store임. 몽고스토어로 설정하고 dburl연결.)
         store: MongoStore.create({
-            mongoUrl: "mongodb://127.0.0.1:27017/pengtube",
+            mongoUrl: process.env.DB_URL,
         }),
     })
 );
