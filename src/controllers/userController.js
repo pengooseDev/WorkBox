@@ -103,3 +103,19 @@ export const logout = (req, res) => {
 export const see = (req, res) => {
     return res.send("user - see User/:id");
 };
+
+export const startGithubLogin = (req, res) => {
+    //?client_id=d0d25e86e29eb36d52ce&allow_signup=true&scope=read:user user:email
+    const baseUrl = "https://github.com/login/oauth/authorize";
+    const config = {
+        client_id: "d0d25e86e29eb36d52ce",
+        allow_signup: false,
+        scope: "read:user user:email",
+    };
+    const params = new URLSearchParams(config).toString();
+    const returnUrl = `${baseUrl}?${params}`;
+
+    return res.redirect(returnUrl);
+};
+
+export const finishGithubLogin = (req, res) => {};
