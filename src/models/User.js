@@ -8,6 +8,7 @@ const userSchema = new mongoose.Schema({
         minlength: 4,
         maxlength: 20,
     },
+    avatarUrl: String,
     //소셜 로그인을 할 경우, 비밀번호를 생성하지 않기 때문에, 반드시 소셜로그인 True, false로 로그인체크
     socialOnly: { type: Number, default: false },
     username: {

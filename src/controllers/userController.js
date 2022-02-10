@@ -49,12 +49,12 @@ export const postJoin = async (req, res) => {
     }
 };
 
-export const edit = (req, res) => {
-    return res.send("user - Edit Users");
+export const getEdit = (req, res) => {
+    return res.render("edit-profile", { pageTktle: "Edit Profile" });
 };
 
-export const remove = (req, res) => {
-    return res.send("user - remove User");
+export const postEdit = (req, res) => {
+    return res.render("edit-profile");
 };
 
 /* Login */
@@ -64,7 +64,7 @@ export const getLogin = (req, res) => {
 
 export const postLogin = async (req, res) => {
     const { username, password } = req.body;
-    const user = await User.findOne({ username });
+    const user = await User.findOne({ username, socialOnly: false });
     const pageTitle = "Login";
     //check exists
     if (!user) {
@@ -98,7 +98,9 @@ export const postLogin = async (req, res) => {
 };
 
 export const logout = (req, res) => {
-    return res.send("user - logout");
+    req.session.destroy(); //세션 만료만 하면 됨. 겁나 간단하네.
+    //(세션에 담긴 loggedIn = true도 날라감. false처리됨.)
+    return res.redirect("/");
 };
 
 export const see = (req, res) => {
@@ -194,16 +196,10 @@ export const finishGithubLogin = async (req, res) => {
         }
         //일반 회원가입 후, 다른 소셜 회원가입으로 또 회원가입하는 경우 아래와 같이 처리.
         //(회원가입 플랫폼은 다르지만, 동일한 이메일로 가입하는 경우)
-        const existingUser = await User.findOne({ email: emailObj.email });
-        if (existingUser) {
-            req.session.loggedIn = true;
-            req.session.user = existingUser;
-            return res.redirect("/");
-        } else {
-            //Create Account
-            if (!userData.name) {
-            }
+        let existingUser = await User.findOne({ email: emailObj.email });
+        if (!existingUser) {
             const user = await User.create({
+                avatarUrl: userData.avatar_url,
                 name: userData.name ? userData.name : userData.login, //이름 설정 안한경우 login으로 이름설정.
                 username: userData.login,
                 email: emailObj.email,
@@ -213,11 +209,10 @@ export const finishGithubLogin = async (req, res) => {
                 socialOnly: true,
                 location: userData.location,
             });
-            req.session.loggedIn = true;
-            req.session.user = user;
-            return res.redirect("/");
         }
-        return res.redirect("/login");
+        req.session.loggedIn = true;
+        req.session.user = user;
+        return res.redirect("/");
     } else {
         //access_token 발급 실패할 경우
         return res.redirect("/login");
