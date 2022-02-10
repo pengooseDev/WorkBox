@@ -9,7 +9,7 @@ export const localsMiddleware = (req, res, next) => {
     res.locals.siteName = "Pengtube";
 
     //MongoDB에서 가져온 User객체 //await User.findOne({ username });
-    res.locals.loggedInUser = req.session.user;
+    res.locals.loggedInUser = req.session.user || {};
     next();
 };
 
@@ -19,4 +19,20 @@ export const sessionMiddleware = (req, res, next) => {
         //console.log(`sessionID : `, req.session.id)
         next();
     });
+};
+
+export const protectorMiddleware = (req, res, next) => {
+    if (req.session.loggedIn) {
+        next();
+    } else {
+        return res.redirect("/login");
+    }
+};
+
+export const publicOnlyMiddleware = (req, res, next) => {
+    if (!req.session.loggedIn) {
+        return next();
+    } else {
+        return res.redirect("/");
+    }
 };

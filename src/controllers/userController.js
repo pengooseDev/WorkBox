@@ -50,7 +50,10 @@ export const postJoin = async (req, res) => {
 };
 
 export const getEdit = (req, res) => {
-    return res.render("edit-profile", { pageTktle: "Edit Profile" });
+    return res.render("edit-profile", {
+        pageTktle: "Edit Profile",
+        user: req.session.user,
+    });
 };
 
 export const postEdit = (req, res) => {
