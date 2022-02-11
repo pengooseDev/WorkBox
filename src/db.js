@@ -12,7 +12,6 @@ const handleOpen = () => {
     console.log("Connected to DB");
 };
 
-//
 const handleError = (error) => console.log(`DB error : ${error}`);
 //on은 발생할때마다 알려주고, once는 처음만 알려줌
 db.on("error", handleError);

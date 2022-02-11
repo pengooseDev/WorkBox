@@ -1,14 +1,14 @@
 {
-    "name": "pengtube",
+    "name": "WorkBox",
     "version": "1.0.0",
-    "description": "The best way to watch video",
+    "description": "The best jukebox when working",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
         "dev": "nodemon --exec babel-node src/init.js"
     },
     "repository": {
         "type": "git",
-        "url": "https://github.com/dkedid/pengtube"
+        "url": "https://github.com/dkedid/WorkBox"
     },
     "author": "Peng<peng@gmail.com>",
     "license": "MIT",
