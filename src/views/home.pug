@@ -3,7 +3,13 @@ include mixins/video
 
 block content
     div.music-box
-        video(width='70%' src='https://serranoarevalo.github.io/notflix/9bfd1023900e31286103369c803c7ee9.ogv')
+        div.video-box
+            //video.video-config(width='100%' src='https://serranoarevalo.github.io/notflix/9bfd1023900e31286103369c803c7ee9.ogv')
+            iframe(src=`https://www.youtube.com/embed/OWU14WJGDoc?controls=0&autoplay=1` frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen='')
+        div.video-list-box
+            div.video-list-box-title Play List
+            div.video-list-box-list return
+    div.controller-box
         div#videoController
             i#playPauseBtn.fas.fa-play
             i#volume.fas.fa-volume-up
@@ -11,8 +17,8 @@ block content
             div.video-time 0:00 / 0:00
             input.timeLine(type='range' min='0' max='100')
             script(src="/static/js/main.js")
-        div
-            each i in videos
-                +video(i)
-            else
-                li Nothing Found
+    div.video-return-box
+        each i in videos
+            +video(i)
+        else
+            li Nothing Found

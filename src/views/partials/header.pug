@@ -5,19 +5,21 @@ header
             i.fa-brands.fa-accusoft.header-logo
     nav
         ul.header-nav-box
-            li
-                a(href="/") Home
+            a(href="/")
+                li
+                    i.fa-solid.fa-music.menu-icon
             if loggedIn
-                li
-                    a(href="/users/logout") Log Out
-                li
-                    a(href="/users/edit") Edit Profile
+                a(href="/users/logout")
+                    li Log Out
+                a(href="/users/edit")
+                    li Edit Profile
             else
-                li    
-                    a(href="/join") Join
-                li    
-                    a(href="/login") Login
-            li    
-                a(href="/search") Search
-            li 
-                a(href="/videos/upload") Upload Video
+                a(href="/login")    
+                    li 
+                        i.fa-solid.fa-right-to-bracket.menu-icon
+            a(href="/search")    
+                li 
+                    i.fa-solid.fa-magnifying-glass.menu-icon
+            a(href="/videos/upload") 
+                li
+                    i.fa-solid.fa-list.menu-icon

@@ -8,3 +8,57 @@ a {
     }
 }
 */
+
+.music-box {
+    display: flex;
+}
+
+/* Right - Video List*/
+.video-list-box {
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+}
+
+.video-list-box-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    font-weight: 600;
+    padding: 8px;
+    color: rgb(224, 63, 63);
+    background: black;
+}
+
+.video-list-box-list {
+    height: 100%;
+    background: white;
+    color: black;
+}
+
+.video-box {
+    width: 100%;
+    background: rgba(15, 15, 15, 1);
+    position: relative;
+    height: 0;
+    padding-bottom: 56.25%;
+}
+
+.video-box iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.controller-box {
+    background: aliceblue;
+    color: black;
+}
+
+.video-return-box {
+    background: bisque;
+    color: black;
+}
