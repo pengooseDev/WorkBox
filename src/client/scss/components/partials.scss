@@ -51,16 +51,18 @@
         margin-bottom: 10px;
         border-radius: 10px;
         &:hover {
-            background: rgb(224, 63, 63);
+            background: black;
+            //box-shadow: 0px 0px 10px 1px rgba(255, 255, 255, 0.4);
+            transition: ease-in-out 0.2s;
         }
     }
 
     a li {
         //btn color
         font-weight: 600;
-        color: rgb(224, 63, 63);
+        color: rgba(255, 255, 255, 0.8);
         &:hover {
-            color: rgba(0, 0, 0, 0.8);
+            color: rgb(224, 63, 63);
             transition: ease-in-out 0.2s;
         }
     }

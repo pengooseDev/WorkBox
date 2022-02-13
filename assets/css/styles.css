@@ -55,14 +55,15 @@
   border-radius: 10px;
 }
 .header-nav-box li:hover {
-  background: #e03f3f;
+  background: black;
+  transition: ease-in-out 0.2s;
 }
 .header-nav-box a li {
   font-weight: 600;
-  color: #e03f3f;
+  color: rgba(255, 255, 255, 0.8);
 }
 .header-nav-box a li:hover {
-  color: rgba(0, 0, 0, 0.8);
+  color: #e03f3f;
   transition: ease-in-out 0.2s;
 }
 
@@ -112,8 +113,6 @@ a {
   width: 100%;
   background: #0f0f0f;
   position: relative;
-  height: 0;
-  padding-bottom: 56.25%;
 }
 
 .video-box iframe {
