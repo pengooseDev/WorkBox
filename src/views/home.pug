@@ -2,16 +2,17 @@ extends base
 include mixins/video
 
 block content
-    video(controls='' width='700px' src='https://serranoarevalo.github.io/notflix/9bfd1023900e31286103369c803c7ee9.ogv')
-    div#videoController
-        i#playPauseBtn.fas.fa-play
-        i#volume.fas.fa-volume-up
-        input#volumeRange(type='range' step='0.1' value='0.5' min='0' max='1')
-        div.video-time 0:00 / 0:00
-        input.timeLine(type='range' min='0' max='100')
-        script(src="/static/js/main.js")
-        script(src="/static/js/videoHandler.js")
-    each i in videos 
-        +video(i)
-    else
-        li Nothing Found
+    div.music-box
+        video(width='70%' src='https://serranoarevalo.github.io/notflix/9bfd1023900e31286103369c803c7ee9.ogv')
+        div#videoController
+            i#playPauseBtn.fas.fa-play
+            i#volume.fas.fa-volume-up
+            input#volumeRange(type='range' step='0.1' value='0.5' min='0' max='1')
+            div.video-time 0:00 / 0:00
+            input.timeLine(type='range' min='0' max='100')
+            script(src="/static/js/main.js")
+        div
+            each i in videos
+                +video(i)
+            else
+                li Nothing Found

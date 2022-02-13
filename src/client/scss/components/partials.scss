@@ -1,0 +1,27 @@
+.header-title-box {
+    padding: 10px;
+    height: 20px;
+    background: rgba(0, 0, 0, 0.25);
+}
+
+.header-title {
+    font-weight: 600;
+    margin-right: 3px;
+    color: rgb(224, 63, 63);
+}
+
+.header-logo {
+    color: rgb(224, 63, 63);
+}
+
+.header-nav-box {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    width: 80px;
+    left: 0px;
+    background: teal;
+    li {
+        color: black;
+    }
+}

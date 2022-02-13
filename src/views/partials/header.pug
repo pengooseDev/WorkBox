@@ -1,0 +1,23 @@
+header
+    div.header-title-box
+        a(href="#")
+            i.header-title WorkBox
+            i.fa-brands.fa-accusoft.header-logo
+    nav
+        ul.header-nav-box
+            li
+                a(href="/") Home
+            if loggedIn
+                li
+                    a(href="/users/logout") Log Out
+                li
+                    a(href="/users/edit") Edit Profile
+            else
+                li    
+                    a(href="/join") Join
+                li    
+                    a(href="/login") Login
+            li    
+                a(href="/search") Search
+            li 
+                a(href="/videos/upload") Upload Video

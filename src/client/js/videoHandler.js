@@ -12,11 +12,9 @@ console.log("import");
 const handlePlayAndStop = () => {
     if (video.paused) {
         video.play();
-        console.log(1);
         psBtn.className = "fas fa-pause";
     } else {
         video.pause();
-        console.log(1);
         psBtn.className = "fas fa-play";
     }
 };
@@ -68,6 +66,14 @@ const keyInputHandler = (e) => {
     } else if (value === "KeyF") {
         //it is working at VSC with Chrome!
         video.requestFullscreen();
+    } else if (value === "KeyM") {
+        if (!video.muted) {
+            volumeBtn.className = "fas fa-volume-mute";
+            return (video.muted = true);
+        } else {
+            volumeBtn.className = "fas fa-volume-up";
+            return (video.muted = false);
+        }
     } else if (value === "Escape") {
         //it is working at VSC with Chrome!
         video.exitFullscreen();
