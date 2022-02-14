@@ -9,11 +9,13 @@ body {
 //default-color: rgb(224, 63, 63);
 
 main {
+    height: 100vh;
+    background: rgba(51, 51, 51, 1);
     margin-left: 80px;
     margin-top: 40px;
+    border-top-left-radius: 16px;
 }
 
 .video-config {
     border-top-left-radius: 15px;
-    background: black;
 }

@@ -1,7 +1,6 @@
 /*!*********************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/client/scss/style.scss ***!
   \*********************************************************************************************************************/
-@charset "UTF-8";
 /* Components*/
 .partial-footer {
   position: fixed;
@@ -14,6 +13,20 @@
   background: #1f1f1f;
   color: rgba(255, 255, 255, 0.6);
   padding: 3px;
+}
+
+.nav-main-box {
+  position: relative;
+}
+
+.header-patch {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  background: #0f0f0f;
+  z-index: -3;
+  left: 80px;
+  top: 0px;
 }
 
 .header-title-box {
@@ -71,56 +84,9 @@
   font-size: 25px;
 }
 
-/*
-pug페이지랑 동일한 scss파일 만들고 작업하기.
-그러면 조금 더 수월함
-a {
-    css쓰고
-    &:hover {
-        hover상태일 때 css적용될거 작성 가능
-    }
-}
-*/
-.music-box {
-  display: flex;
-}
-
-/* Right - Video List*/
-.video-list-box {
-  display: flex;
-  flex-direction: column;
-  width: 500px;
-}
-
-.video-list-box-title {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 15px;
-  font-weight: 600;
-  padding: 8px;
-  color: rgba(255, 255, 255, 0.8);
-  background: black;
-}
-
-.video-list-box-list {
-  height: 100%;
-  background: white;
-  color: black;
-}
-
 .video-box {
   width: 100%;
-  background: #0f0f0f;
   position: relative;
-}
-
-.video-box iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
 }
 
 .controller-box {
@@ -142,9 +108,6 @@ a {
 .video-container {
   display: flex;
   flex-direction: column;
-}
-
-.video-container {
   position: relative;
 }
 
@@ -232,6 +195,46 @@ a {
 }
 #volumeRange:hover {
   cursor: pointer;
+}
+
+/* musicBox mediaQuery */
+.music-box {
+  display: flex;
+}
+
+/* video Title mediaQuery*/
+.video-list-box {
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+}
+
+@media (max-width: 1100px) {
+  .music-box {
+    display: block;
+  }
+
+  .video-list-box {
+    width: 100%;
+    height: 100vh;
+  }
+}
+/* Right - Video List*/
+.video-list-box-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  font-weight: 600;
+  padding: 8px;
+  color: white;
+  background: black;
+}
+
+.video-list-box-list {
+  height: 100%;
+  background: rgba(33, 33, 33, 0.1);
+  color: black;
 }
 
 /* Variable */
@@ -393,11 +396,13 @@ body {
 }
 
 main {
+  height: 100vh;
+  background: #333333;
   margin-left: 80px;
   margin-top: 40px;
+  border-top-left-radius: 16px;
 }
 
 .video-config {
   border-top-left-radius: 15px;
-  background: black;
 }
