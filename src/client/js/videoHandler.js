@@ -5,10 +5,22 @@ const volumeBtn = videoController.querySelector("#volume");
 const volumeRange = videoController.querySelector("#volumeRange");
 const videoTimeValue = document.querySelector(".video-time");
 const timeLine = document.querySelector(".timeLine");
+const videoBackgroundBox = document.querySelector(".video-box");
+
 let volumeValue = 0.5;
 video.volume = volumeValue;
 
-console.log("import");
+const handleVideoClickPause = () => {
+    if (video.paused) {
+        video.play();
+        psBtn.className = "fas fa-pause";
+    } else {
+        video.pause();
+        psBtn.className = "fas fa-play";
+    }
+};
+videoBackgroundBox.addEventListener("click", handleVideoClickPause);
+
 const handlePlayAndStop = () => {
     if (video.paused) {
         video.play();
