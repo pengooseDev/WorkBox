@@ -10,6 +10,7 @@ body {
 
 main {
     height: 100vh;
+    padding: 20px;
     background: rgba(51, 51, 51, 1);
     margin-left: 80px;
     margin-top: 40px;
@@ -18,4 +19,5 @@ main {
 
 .video-config {
     border-top-left-radius: 15px;
+    background: black;
 }

@@ -1,12 +1,13 @@
-/* Components*/
-@import "./components/partials.scss";
-@import "./components/home.scss";
-
 /* Variable */
 @import "./config/_variable.scss";
 
-/* Reset.css */
-@import "./config/_reset.scss";
-
 /* default */
 @import "./components/default.scss";
+
+/* Components*/
+@import "./components/partials.scss";
+@import "./components/home.scss";
+@import "./components/animation.scss";
+
+/* Reset.css */
+@import "./config/_reset.scss";

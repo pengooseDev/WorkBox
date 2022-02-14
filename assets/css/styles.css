@@ -1,6 +1,29 @@
 /*!*********************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/client/scss/style.scss ***!
   \*********************************************************************************************************************/
+/* Variable */
+/* default */
+body {
+  background-color: rgba(0, 0, 0, 0.8);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  color: white;
+  overflow-y: hidden;
+}
+
+main {
+  height: 100vh;
+  padding: 20px;
+  background: #333333;
+  margin-left: 80px;
+  margin-top: 40px;
+  border-top-left-radius: 16px;
+}
+
+.video-config {
+  border-top-left-radius: 15px;
+  background: black;
+}
+
 /* Components*/
 .partial-footer {
   position: fixed;
@@ -209,16 +232,6 @@
   width: 500px;
 }
 
-@media (max-width: 1100px) {
-  .music-box {
-    display: block;
-  }
-
-  .video-list-box {
-    width: 100%;
-    height: 100vh;
-  }
-}
 /* Right - Video List*/
 .video-list-box-title {
   display: flex;
@@ -229,15 +242,125 @@
   padding: 8px;
   color: white;
   background: black;
+  border-top-right-radius: 15px;
 }
 
+/* Playlist  */
 .video-list-box-list {
   height: 100%;
-  background: rgba(33, 33, 33, 0.1);
-  color: black;
+  background: rgba(33, 33, 33, 0.8);
+  color: white;
+  padding: 10px;
 }
 
-/* Variable */
+.list-queue-box {
+  display: flex;
+  color: black;
+  margin-bottom: 15px;
+  height: 70px;
+}
+
+.list-queue-box:first-child {
+  margin-top: 5px;
+}
+
+.list-queue-data {
+  background: rgba(255, 255, 255, 0.2);
+  display: flex;
+  padding: 10px;
+  width: 100%;
+  transition: ease-in-out 0.15s;
+}
+.list-queue-data:hover {
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.65);
+  transition: ease-in-out 0.15s;
+}
+
+.list-queue-delete {
+  background: rgba(255, 255, 255, 0.3);
+  color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  right: 0px;
+  top: 0px;
+  width: 22px;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+  transition: ease-in-out 0.2s;
+}
+.list-queue-delete:hover {
+  background: rgba(255, 99, 71, 0.85);
+  color: black;
+  transition: ease-in-out 0.2s;
+}
+
+.list-queue-img {
+  width: 50px;
+  height: 50px;
+  border-radius: 10px;
+  margin-right: 10px;
+}
+
+.list-queue-info-box {
+  display: flex;
+  flex-direction: column;
+  background: rgba(255, 255, 255, 0.55);
+  padding: 5px;
+  border-radius: 5px;
+  width: 100%;
+}
+
+/* mediaQuery */
+@media (max-width: 1250px) {
+  .music-box {
+    display: block;
+  }
+
+  .video-list-box {
+    width: 100%;
+    height: 100vh;
+  }
+
+  .video-list-box-title {
+    border-top-right-radius: 0px;
+    background-color: #0f0f0f;
+  }
+
+  .video-config {
+    border-top-right-radius: 15px;
+  }
+}
+.wrapper-animation {
+  position: fixed;
+  top: 18px;
+  left: 102px;
+}
+
+.lightsource {
+  width: 10px;
+  height: 10px;
+  margin: 0;
+  background: #fff983;
+  border-radius: 25px;
+  box-shadow: 0 0 20px #fff6b5;
+  filter: blur(2px);
+  animation: lightsource 2s infinite;
+}
+
+@keyframes lightsource {
+  0% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.5;
+  }
+}
 /* Reset.css */
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
@@ -385,24 +508,4 @@ q:after {
 table {
   border-collapse: collapse;
   border-spacing: 0;
-}
-
-/* default */
-body {
-  background-color: rgba(0, 0, 0, 0.8);
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  color: white;
-  overflow-y: hidden;
-}
-
-main {
-  height: 100vh;
-  background: #333333;
-  margin-left: 80px;
-  margin-top: 40px;
-  border-top-left-radius: 16px;
-}
-
-.video-config {
-  border-top-left-radius: 15px;
 }

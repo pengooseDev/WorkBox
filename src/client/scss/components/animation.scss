@@ -1,0 +1,28 @@
+.wrapper-animation {
+    position: fixed;
+    top: 18px;
+    left: 102px;
+}
+
+.lightsource {
+    width: 10px;
+    height: 10px;
+    margin: 0;
+    background: #fff983;
+    border-radius: 25px;
+    box-shadow: 0 0 20px #fff6b5;
+    filter: blur(2px);
+    animation: lightsource 2s infinite;
+}
+
+@keyframes lightsource {
+    0% {
+        opacity: 0.5;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0.5;
+    }
+}
