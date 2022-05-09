@@ -1,4 +1,5 @@
-import { createFFmpeg, fetchFile } from "@ffmpeg/ffmpeg";
+//코드 다시짜기
+/*import { createFFmpeg, fetchFile } from "@ffmpeg/ffmpeg";
 import ytdl from "ytdl-core";
 import fs from "fs";
 
@@ -13,4 +14,4 @@ const handleDownload = async (videoUrl) => {
 
     ffmpeg.FS("writeFile", "mp4name", await fetchFile(videoUrl));
     await ffmpeg.run("-i", "mp4name", "-r", "60", "ouput.mp4");
-};
+};*/
